@@ -27,3 +27,24 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: mision31
       ME_CONFIG_MONGODB_URL: mongodb://root:mision31@mongo:27017/
+  
+  db:
+    container_name: supermarketlist-mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "mision31"
+      MYSQL_DATABASE: "SuperMarketList"
+      MYSQL_USER: "supermarketusers"
+      MYSQL_PASSWORD: "EstaEsLaContraseniaNumero1234ParaDB"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ~/mysqldockerfiles:/var/lib/mysql:rw
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8091:8080
