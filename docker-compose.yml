@@ -44,6 +44,7 @@ services:
       - ~/mysqldockerfiles:/var/lib/mysql:rw
 
   adminer:
+    container_name: supermarketlist-mysqladmin
     image: adminer
     restart: always
     ports:
