@@ -13,12 +13,6 @@ pipeline{
                 sh 'docker rm supermarketlist-mysql'
             }
         }
-        stage("Removing sqlserver"){
-            steps{
-                sh 'docker stop sqlserver'
-                sh 'docker rm sqlserver'
-            }
-        }
         stage("Build/Start container"){
             steps{
                 sh 'docker-compose up -d --build'
